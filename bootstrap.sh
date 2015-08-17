@@ -2,7 +2,7 @@
 
 # Use single quotes instead of double quotes to make it work with special-character passwords
 PASSWORD='12345678'
-PROJECTFOLDER='myproject'
+PROJECTFOLDER='drupal'
 
 # create project folder
 sudo mkdir "/var/www/html/${PROJECTFOLDER}"
