@@ -58,6 +58,7 @@ sudo apt-get -y install git
 # put drupal 6 into the shared folder
 git clone https://github.com/drupal/drupal.git "/var/www/html/${PROJECTFOLDER}"
 ( cd "/var/www/html/${PROJECTFOLDER}" && git checkout 6.x-18-security )
+( cd "/var/www/html/${PROJECTFOLDER}" && mkdir "/var/www/html/${PROJECTFOLDER}/sites/default/files" )
 ( cp /vagrant/settings.php "/var/www/html/${PROJECTFOLDER}/sites/default/settings.php" )
 
 # add drupal database
