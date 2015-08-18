@@ -46,8 +46,11 @@ echo "${VHOST}" > /etc/apache2/sites-available/000-default.conf
 # enable mod_rewrite
 sudo a2enmod rewrite
 
+# set some environment variables for apache
+sed -i 's/www-data/vagrant/g' /etc/apache2/envvars
+
 # restart apache
-service apache2 restart
+sudo service apache2 restart
 
 # install git
 sudo apt-get -y install git
