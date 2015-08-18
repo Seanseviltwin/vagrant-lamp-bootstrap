@@ -55,9 +55,11 @@ sudo service apache2 restart
 # install git
 sudo apt-get -y install git
 
+# install unzip
+sudo apt-get install unzip
+
 # put drupal 6 into the shared folder
-git clone https://github.com/drupal/drupal.git "/var/www/html/${PROJECTFOLDER}"
-( cd "/var/www/html/${PROJECTFOLDER}" && git checkout 6.x-18-security )
+wget -O temp.zip http://ftp.drupal.org/files/projects/drupal-6.36.zip; unzip temp.zip ; rm temp.zip; mv -v drupal-6.36/* "/var/www/html/${PROJECTFOLDER}/"
 ( cd "/var/www/html/${PROJECTFOLDER}" && mkdir "/var/www/html/${PROJECTFOLDER}/sites/default/files" )
 ( cp /vagrant/settings.php "/var/www/html/${PROJECTFOLDER}/sites/default/settings.php" )
 
