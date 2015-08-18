@@ -56,9 +56,12 @@ sudo service apache2 restart
 sudo apt-get -y install git
 
 # put drupal 6 into the shared folder
-
 git clone https://github.com/drupal/drupal.git "/var/www/html/${PROJECTFOLDER}"
 ( cd "/var/www/html/${PROJECTFOLDER}" && git checkout 6.x-18-security )
+( cd "/var/www/html/${PROJECTFOLDER}/sites/default/" && mv default.settings.php settings.php )
+
+# add drupal database
+mysql -u root -p${PASSWORD} -e "CREATE DATABASE drupal"
 
 # install Composer
 curl -s https://getcomposer.org/installer | php
